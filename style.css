@@ -1,0 +1,260 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ffd6e8, #dbeafe);
+}
+
+.app-container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+/* PROGRESS */
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,0.2);
+    z-index: 999;
+}
+#progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff4d6d, #ff9a9e);
+    transition: width .4s;
+}
+
+/* FRAME HP */
+.phone-wrapper {
+    max-width: 390px;
+    width: 100%;
+    height: 780px;
+    background: #000;
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 0 30px 60px rgba(0,0,0,.25);
+    pointer-events: auto;
+}
+
+.phone-screen {
+    background: #fff;
+    border-radius: 32px;
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+#startScreen {
+    justify-content: center;
+    align-items: center;
+}
+
+/* SCREEN */
+.screen {
+    display: none;
+    min-height: 100%;
+    text-align: center;
+    flex-direction: column;
+
+    /* ⛔ HAPUS CENTER VERTIKAL */
+    justify-content: flex-start;
+    align-items: stretch;
+
+    padding: 36px 22px 48px;
+}
+
+.center-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+.screen h2 {
+    margin-top: 12px;
+    margin-bottom: 18px;
+}
+
+.game-info {
+    margin-bottom: 32px;
+    font-size: 14px;
+}
+
+
+.screen.active {
+    display: flex;
+    animation: popIn .5s ease;
+}
+
+.screen button {
+    margin-top: 24px;
+}
+
+.msg {
+    min-height: 20px;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.msg.error {
+    color: #ff4d6d;
+    animation: shake .35s;
+}
+
+/* UI */
+button {
+    padding: 14px 20px;
+    border-radius: 25px;
+    border: none;
+    background: #ff4d6d;
+    color: #fff;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.word-box {
+    margin-top: 8px;
+    margin-bottom: 32px;
+}
+
+
+
+#answerBox {
+    min-height: 50px;
+    width: 80%;
+    border: 2px dashed #ff9a9e;
+    border-radius: 15px;
+    margin: 12px auto 32px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+}
+
+#answerBox span {
+    background: #fff;
+    color: #ff4d6d;
+    padding: 8px 12px;
+    border-radius: 20px;
+}
+
+/* PUZZLE & GALLERY */
+.puzzle {
+    margin-top: 20px;
+    margin-bottom: 24px;
+}
+
+.puzzle, .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    width: 90%;
+}
+
+.puzzle img, .gallery img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+}
+
+#puzzleMsg {
+    margin-top: 16px;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+/* DOT */
+.dot-nav {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+}
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #ddd;
+}
+.dot.active {
+    background: #ff4d6d;
+}
+
+#passwordInput {
+    width: 80%;
+    max-width: 260px;
+    padding: 14px 16px;
+    margin: 16px 0;
+    border-radius: 16px;
+    border: 2px solid #ff9a9e;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+}
+
+#passwordInput:focus {
+    border-color: #ff4d6d;
+}
+
+.result-text {
+    margin-top: 12px;
+    font-size: 14px;
+    text-align: center;
+    min-height: 20px;
+    transition: 0.3s;
+}
+
+.result-text.error {
+    color: #ff4d6d;
+    animation: shake 0.35s;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+
+/* EFFECT */
+@keyframes popIn {
+    from { opacity: 0; transform: scale(.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: .8; }
+    to { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* MOBILE MODE */
+@media(max-width:480px){
+    body{background:#fff;}
+    .phone-wrapper{
+        height:100vh;
+        border-radius:0;
+        padding:0;
+        box-shadow:none;
+        background:none;
+    }
+    .phone-screen{border-radius:0;}
+}

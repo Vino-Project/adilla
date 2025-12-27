@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Happy Birthday Sayang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= PROGRESS BAR ================= -->
+<div id="progressBar">
+    <div id="progress"></div>
+</div>
+
+<!-- ================= AUDIO ================= -->
+<audio id="clickSound" src="click.mp3" preload="auto"></audio>
+<audio id="successSound" src="success.mp3" preload="auto"></audio>
+<audio id="bgMusic" loop preload="auto">
+    <source src="denda.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ================= CENTER CONTAINER ================= -->
+<div class="app-container">
+
+    <!-- ================= FRAME HP ================= -->
+    <div class="phone-wrapper">
+        <div class="phone-screen">
+
+            <!-- ================= START SCREEN ================= -->
+            <div id="startScreen" class="screen active">
+                <h1>Hallo Beb 💕</h1>
+                <p>Kalau mau lanjut, selesaikan tantangan ini dulu yaa😉</p>
+                <button onclick="startGame()">Mulai</button>
+            </div>
+
+            <!-- PASSWORD -->
+            <div id="passwordScreen" class="screen center-screen">
+                <div class="screen-center-wrapper">
+
+                    <h2>Masukkan Password 💌</h2>
+                    <p>Kalau Password nya salah aku cium yaa😉</p>
+
+                    <input
+                        type="password"
+                        id="passwordInput"
+                        placeholder="••••••••"
+                        maxlength="20"
+                    >
+
+                    <button onclick="checkPassword()">Lanjut</button>
+                    <p id="passwordMsg" class="msg"></p>
+
+                </div>
+            </div>
+
+
+            <!-- ================= GAME 1 : SUSUN KATA ================= -->
+            <div id="gameWord" class="screen">
+                <h2>Susun Kata</h2>
+
+                <p class="game-info">
+                    Waktu: <span id="timer">15</span>s |
+                    ❤️ <span id="life">3</span>
+                </p>
+
+                <div class="word-box">
+                    <button onclick="selectWord(this)">SAYANG</button>
+                    <button onclick="selectWord(this)">ADILLA</button>
+                    <button onclick="selectWord(this)">SUKA</button>
+                    <button onclick="selectWord(this)">PUTRA</button>
+                    <button onclick="selectWord(this)">CUKA</button>
+                    <button onclick="selectWord(this)">CINTA</button>
+                    <button onclick="selectWord(this)">OPIE</button>
+                    <button onclick="selectWord(this)">NASYWA</button>
+                    <button onclick="selectWord(this)">NYONYA</button>
+                </div>
+
+                <div id="answerBox" class="answer-box"></div>
+
+                <button onclick="checkWord()">Cek Jawaban</button>
+                <p id="gameMsg" class="msg"></p>
+                <p id="resultText" class="result-text"></p>
+            </div>
+
+            <!-- ================= GAME 2 : PUZZLE FOTO ================= -->
+            <div id="gamePuzzle" class="screen center-screen">
+                <h2>Susun Foto Kita</h2>
+
+                <div class="puzzle">
+                    <img src="foto1.jpeg" alt="foto 1" onclick="pickPuzzle(this)">
+                    <img src="foto2.jpeg" alt="foto 2" onclick="pickPuzzle(this)">
+                    <img src="foto3.jpeg" alt="foto 3" onclick="pickPuzzle(this)">
+                    <img src="foto4.jpeg" alt="foto 3" onclick="pickPuzzle(this)">
+                    <img src="foto5.jpeg" alt="foto 3" onclick="pickPuzzle(this)">
+                    <img src="foto6.jpeg" alt="foto 3" onclick="pickPuzzle(this)">
+                    <img src="foto7.jpeg" alt="foto 3" onclick="pickPuzzle(this)">
+                </div>
+
+                <p id="puzzleMsg" class="msg">
+                    Pilih foto secara berurutan dengan benar yaa 💖
+                </p>
+            </div>
+
+            <!-- ================= PESAN UTAMA ================= -->
+            <div id="mainScreen" class="screen center-screen">
+                <h2 id="typeText"></h2>
+                <button onclick="showGallery()">Lanjut</button>
+            </div>
+
+            <!-- ================= GALLERY ================= -->
+            <div id="galleryScreen" class="screen center-screen">
+                <h2>Kenangan Kita</h2>
+
+                <div class="gallery">
+                    <img src="foto1.jpeg" alt="kenangan 1">
+                    <img src="foto2.jpeg" alt="kenangan 2">
+                    <img src="foto3.jpeg" alt="kenangan 3">
+                    <img src="foto4.jpeg" alt="kenangan 4">
+                    <img src="foto5.jpeg" alt="kenangan 5">
+                    <img src="foto6.jpeg" alt="kenangan 6">
+                    <img src="foto7.jpeg" alt="kenangan 7">
+                </div>
+
+                <button onclick="showFinal()">Pesan Terakhir</button>
+            </div>
+
+            <!-- ================= FINAL SCREEN ================= -->
+            <div id="finalScreen" class="screen center-screen">
+                <h1 id="finalTitle">Happy Birthday Baby 💖🎉</h1>
+                <p id="finalMsg"></p>
+            </div>
+
+            <!-- ================= DOT NAV ================= -->
+            <div class="dot-nav">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- ================= CONFETTI ================= -->
+<canvas id="confetti"></canvas>
+
+<!-- ================= SCRIPT ================= -->
+<script src="script.js"></script>
+
+</body>
+</html>
