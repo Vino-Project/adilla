@@ -145,7 +145,7 @@ function pickPuzzle(img) {
         }
 
     } else {
-        msg.textContent = "Urutannya salah 😅 coba tanyain lagi deh ke cowo kamu, soalnya cuman dia yang tau😅";
+        msg.textContent = "Urutannya salah! coba tanyain lagi deh ke cowo kamu, soalnya cuman dia yang tau😅";
         msg.classList.add("error");
 
         resetPuzzle();
@@ -201,7 +201,7 @@ function showFinal() {
     if (timeTaken < 40) {
         document.getElementById("finalTitle").innerText = "Ending Rahasia 💖";
         document.getElementById("finalMsg").innerText =
-            "Kamu cepat banget! Itu tandanya kamu benar-benar suka aku deh ❤️, coba deh jangan buru-buru di click tombol lanjut nya, siapa tau ada pesan bubub kamu yang bikin kamu hadeuh meleleh🤣";
+            "Kayaknya aku suka sama kau deh 😅, Apa kau yang suka sama aku yaa ❤️?, kalau suka tuh bilang aja😙, jangan gengsi 😉";
     } else {
         document.getElementById("finalMsg").innerText =
             "Semoga segala impian dan keinginan mu tergapai yaa😙. btw ada ending rahasia nya loh beb, coba tanyain cara nemuin ending rahasianya ke bubub kamu tuh";
